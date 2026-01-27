@@ -3,6 +3,7 @@ import './App.css'
 import { Routes,Route } from 'react-router-dom'
 import Stateeg1 from './components/Stateeg1'
 import Refeg from './components/Refeg'
+import Effect from './components/Effect'
 function App() {
   const [bgcolor,setbgcolor] = useState('skyblue')
   const [color,setcolor]=useState('black')
@@ -33,6 +34,7 @@ function App() {
 <Routes>
   <Route path='/' element={<Stateeg1></Stateeg1>}></Route>
   <Route path='/ref' element={<Refeg></Refeg>}></Route>
+  <Route path='/effect' element={<Effect></Effect>}></Route>
 </Routes>
 </div>
   </>
