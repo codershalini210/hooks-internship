@@ -1,10 +1,16 @@
 import React from 'react'
-import { productsary } from './productdata'
+import { productsary } from './newproductdata'
 import { Link } from 'react-router-dom'
 export default function Categories() {
-    let categories = productsary.map((p)=>{
-      return  {cname:p.category, imgsrc:p.items[0].imgurl}
-    }) 
+  let categories= [];
+  productsary.map((p)=>
+  {
+    if(categories.findIndex((e)=>e.cname==p.category)==-1)
+    {
+    categories.push({cname:p.category, imgsrc:p.images})
+    }
+  })
+  
     let categories_ui = categories.map((c)=>
     {
     return    <div className='w-1/4 text-center flex justify-center items-center flex-col'>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Routes,Route } from 'react-router-dom'
+import { Routes,Route, Link } from 'react-router-dom'
 import Stateeg1 from './components/Stateeg1'
 import Refeg from './components/Refeg'
 import Effect from './components/Effect'
@@ -34,7 +34,7 @@ function App() {
         <input type="button" value="A" className='w-15' style={{backgroundColor:'purple',color:'white'}} 
           onClick={()=>changeTheme('purple','white')}/>
       </div>
-<h1>hooks in react</h1>
+<Link to="/">Home</Link>
 <Routes>
   <Route path='/' element={<Categories></Categories>}></Route>
   <Route path="/products/:cname" element={<Products></Products>}></Route>
