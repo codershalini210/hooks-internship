@@ -11,7 +11,7 @@ export default function ProductDetails() {
     //     id: 1,
     //     name: "Smartphone",
     //     price: 14999,
-    //     imgurl: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg"
+    //     imgurl: "https://thumbnail.pexels.com/photos/607812/pexels-photo-607812.jpeg"
     //   },
     //   {
   
@@ -23,7 +23,7 @@ console.log(similer_Products)
  let similer_Products_ui = similer_Products.map((p)=>
     {
       return  <div key= {p.id} className='w-1/4 flex justify-center items-center text-center flex-col'>
-        <img src={p.images} alt="" className='w-4/5 aspect-square' />
+        <img src={p.thumbnail} alt="" className='w-4/5 aspect-square' />
         <div className='text-lg'>{p.title}</div>
         <div>Rs.{p.price}</div>
         <Link to={"/productDetails/"+p.id}>view more</Link>
@@ -36,7 +36,7 @@ console.log(similer_Products)
     <div>
     <div className='flex '>
       <div className='w-1/2'> 
-    <img src={product.images} className='w-4/5 aspect square' alt="" />
+    <img src={product.thumbnail} className='w-4/5 aspect square' alt="" />
       </div>
       <div className='w-1/2'>
       {product.title}

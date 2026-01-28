@@ -7,7 +7,7 @@ export default function Categories() {
   {
     if(categories.findIndex((e)=>e.cname==p.category)==-1)
     {
-    categories.push({cname:p.category, imgsrc:p.images})
+    categories.push({cname:p.category, imgsrc:p.thumbnail})
     }
   })
   
