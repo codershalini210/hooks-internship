@@ -12,7 +12,7 @@ export default function Products() {
       return  <div key= {p.id} className='w-1/4 flex justify-center items-center text-center flex-col'>
         <img src={p.thumbnail} alt="" className='w-4/5 aspect-square' />
         <div className='text-lg'>{p.name}</div>
-        <div>Rs.{p.price}</div>
+        <div>${p.price}</div>
         <Link to={"/productDetails/"+p.id}>view more</Link>
         </div>
     })

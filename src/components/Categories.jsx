@@ -1,7 +1,17 @@
 import React from 'react'
 import { productsary } from './newproductdata'
 import { Link } from 'react-router-dom'
-export default function Categories() {
+
+export default function Categories(props) {
+  
+
+  // console.log(currentPath)
+  let direction = props.direction
+  let css_class_name = "flex"
+  if(direction=="bottom")
+  {
+    css_class_name = "flex-col"
+  }
   let categories= [];
   productsary.map((p)=>
   {
@@ -15,15 +25,16 @@ export default function Categories() {
     {
     return    <div className='w-1/4 text-center flex justify-center items-center flex-col'>
            <Link to={"/products/"+c.cname}>
-            <img src={c.imgsrc} className='w-4/5 aspect-square'></img>
-            <div className='font-bold text-lg'>{c.cname}</div>
+           {direction=="right"? <img src={c.imgsrc} className='w-4/5 aspect-square'></img>:""}
+            <div className={direction=="right"?'font-bold text-lg':"text-md underline text-blue-800"}
+            >{c.cname}</div>
             </Link>
         </div>
     })
   return (
     <div>Categories
         <br />
-        <div className='flex flex-wrap gap-4 justify-center'>
+        <div className={css_class_name +' flex-wrap gap-4 justify-center'}>
     {categories_ui}
         </div>
     </div>

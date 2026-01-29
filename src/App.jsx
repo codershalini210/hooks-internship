@@ -8,9 +8,15 @@ import Home from './components/Home'
 import Categories from './components/Categories'
 import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
+import { useLocation } from 'react-router-dom';
+import sideimg from "./assets/sideimg.jpg"
 function App() {
-  const [bgcolor,setbgcolor] = useState('skyblue')
+   const location = useLocation();
+  const currentPath = location.pathname
+  // console.log(currentPath)
+  const [bgcolor,setbgcolor] = useState('')
   const [color,setcolor]=useState('black')
+  let leftui = currentPath=="/"?<img src={sideimg} className='w-full h-[100dvh]'></img>   :<Categories direction="bottom"></Categories>
   let changeTheme =(bgcolor,color)=>
   {
     setbgcolor(bgcolor)
@@ -35,8 +41,13 @@ function App() {
           onClick={()=>changeTheme('purple','white')}/>
       </div>
 <Link to="/">Home</Link>
+<div className='flex '>
+  <div className='w-1/6'>
+      {leftui}
+  </div>
+  <div className='w-5/6'>
 <Routes>
-  <Route path='/' element={<Categories></Categories>}></Route>
+  <Route path='/' element={<Categories direction="right"></Categories>}></Route>
   <Route path="/products/:cname" element={<Products></Products>}></Route>
   <Route path='/productDetails/:id' element={<ProductDetails></ProductDetails>}></Route>
   {/* <Route path='/' element={<Stateeg1></Stateeg1>}></Route>
@@ -45,6 +56,8 @@ function App() {
   <Route path='/home' element={<Home></Home>}></Route> */}
   
 </Routes>
+</div>
+</div>
 </div>
   </>
   )

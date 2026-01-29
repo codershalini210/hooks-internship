@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { productsary } from './newproductdata'
 import { Link } from 'react-router-dom'
+import Imagegallery from './Imagegallery'
 export default function ProductDetails() {
   let params = useParams()
   let pid = params.id
@@ -25,7 +26,7 @@ console.log(similer_Products)
       return  <div key= {p.id} className='w-1/4 flex justify-center items-center text-center flex-col'>
         <img src={p.thumbnail} alt="" className='w-4/5 aspect-square' />
         <div className='text-lg'>{p.title}</div>
-        <div>Rs.{p.price}</div>
+        <div>${p.price}</div>
         <Link to={"/productDetails/"+p.id}>view more</Link>
         </div>
     })
@@ -36,12 +37,13 @@ console.log(similer_Products)
     <div>
     <div className='flex '>
       <div className='w-1/2'> 
-    <img src={product.thumbnail} className='w-4/5 aspect square' alt="" />
+    {/* <img src={product.thumbnail} className='w-4/5 aspect square' alt="" /> */}
+    <Imagegallery imgary={product.images}></Imagegallery>
       </div>
       <div className='w-1/2'>
       {product.title}
       <br />
-      {product.price}
+     $ {product.price}
       
 
       </div>
