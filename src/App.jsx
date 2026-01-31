@@ -13,14 +13,21 @@ import imga from './assets/sale.png'
 import AllProducts from './components/AllProducts';
 import { DemoContext } from './components/contexteg/DemoContext';
 import Home from './components/contexteg/Home';
+import { useState } from 'react';
 
 function App() {
   const location = useLocation();
   const currentPath = location.pathname
   let leftUi = currentPath == '/' ? <img className='w-full h-[65vh] rounded-lg mt-5' src={imga}  alt="" />  : <Categories direction="bottom"></Categories>
+  const [username,setusername] = useState("")
+  const [islogin,setislogin] =  useState(false)
   return (
     <>
-    <DemoContext.Provider value={{name:"Raman"}}>
+    <DemoContext.Provider value={{username:username,
+      setusername:setusername,
+      islogin:islogin,
+      setislogin:setislogin
+    }}>
 <Home></Home>
 
     </DemoContext.Provider>
